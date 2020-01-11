@@ -1,1 +1,32 @@
-
+{
+    "name": "Shortcut",
+    "description" : "Shortcut allows the user to define a short alias for a url, in order to access websites faster.",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": ["storage"],
+    "background": {
+        "scripts": ["shortcut.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [ "file:///*" ],
+            "js": [ "shortcut.js" ]
+        }
+    ],
+    "icons": {
+        "48": "todo.png"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "shortcut@mrvshn40.com",
+          "strict_min_version": "42.0"
+        }
+    },
+    "browser_action": {
+        "default_icon": "todo.png",
+        "default_title": "Shortcut",
+        "default_popup": "popup.html",
+        "browser_style": true
+    }
+}
