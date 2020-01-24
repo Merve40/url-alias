@@ -4,10 +4,9 @@
     "homepage_url": "https://github.com/merve40/url-shortcut",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["storage", "tabs", "webNavigation", "webRequest"],
+    "permissions": ["storage", "tabs", "webNavigation", "webRequest", "activeTab", "runtime"],
     "background": {
-        "scripts": ["trigger.js"],
-        "persistent": false
+        "scripts": ["trigger.js"]
     },
     "icons": {
         "48": "icons/icon-48.png"
@@ -18,10 +17,9 @@
           "strict_min_version": "42.0"
         }
     },
-    "browser_action": {
+    "page_action": {
         "default_icon": "icons/icon-48.png",
         "default_title": "Shortcut",
-        "default_popup": "popup.html",
-        "browser_style": true
+        "default_popup": "popup.html"            
     }
 }

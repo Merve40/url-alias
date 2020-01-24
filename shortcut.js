@@ -8,7 +8,6 @@ addBtn.onclick = add;
 urlInput.value = "https://";
 
 function add(e){
-    console.log("adding..");
     var alias = aliasInput.value.trim();
     var url = urlInput.value.trim();
 
@@ -64,9 +63,7 @@ function save(e){
     }
 
     browser.storage.sync.get(id).then((result)=>{
-        console.log(aliasInput.children[0].value);
-        console.log(urlInput.children[0].value);
-
+       
         // if values remained unchanged -> exit
         if(id == aliasInput.children[0].value && result[id] == urlInput.children[0].value){
             return;
@@ -121,7 +118,8 @@ function save(e){
 function remove(e){
     var id = this.id.split("-")[0];
     browser.storage.sync.remove(id).then(()=>{
-        tableBody.removeChild(`#${id}`);
+        var node = document.querySelector(`#${id}`);
+        tableBody.removeChild(node);
     });
 }
 
@@ -129,7 +127,6 @@ function createNewEntry(alias, url){
 
     if(url.startsWith("https://") || url.startsWith("http://")){
     
-        console.log("creating new entry");
         browser.storage.sync.get(alias).then((result)=>{
             
             // if entry is empty -> create new
@@ -199,6 +196,7 @@ function load(){
 }
 
 function showError(){
+    //TODO: show error msg
     console.log("error");
 }
 

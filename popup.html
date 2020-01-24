@@ -5,8 +5,24 @@
 
         <style>
             body{
+                margin: 0;
+                padding: 0;
+                width: 400px;
+                height: 280px;
+            }
+
+            #title-bar{
+                margin: 0;
+                padding: 5px;
                 background-image: linear-gradient(to right, purple, blue);
                 color: whitesmoke;
+                
+            }
+
+            h1{
+                margin: 0;
+                padding-top: 8px;
+                padding-bottom: 8px;
             }
 
             .center{
@@ -21,72 +37,56 @@
                 font-weight: bolder;
             }
 
-            .line{
+            .form{
+                padding-right: 5%;
+                padding-left: 5%;
+            }
+
+            .in-form{
+                width: 100%;   
+                margin-top: 3px;                             
+            }
+
+            .in-group{
+                margin-top: 10px; 
+            }
+
+            #btn-add{
                 width: 100%;
-                height: 1px;
-                background-color: whitesmoke;
+                height: 50px;
+                position: fixed;
+                bottom: 0;
+                margin: 0;
+                border: none;
             }
 
-            #circle {
-                width: 100px;
-                height: 100px;
-                background-image: linear-gradient(to right, red, orange);
-                -moz-border-radius: 50px;
-                -webkit-border-radius: 50px;
-                border-radius: 50px;
-
-                margin-left: auto;
-                margin-right: auto;
+            #btn-add:hover{
+                background-color: royalblue;
+                color: whitesmoke;
             }
 
-            #circle-inside {
-                width: 90px;
-                height: 90px;
-                background-color: black;
-                -moz-border-radius: 50px;
-                -webkit-border-radius: 50px;
-                border-radius: 50px;
-
-                margin-top: -95px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .vert-bar{
-                width: 36px;
-                height: 8px;
-                background-color: whitesmoke;
-                margin-top: -49px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hor-bar{
-                height: 36px;
-                width: 8px;
-                background-color: whitesmoke;
-                margin-top: -21px;
-                margin-left: auto;
-                margin-right: auto;
-            }
         </style>
 
     </head>
 
     <body>
-        <h1 class="center font" >Shortcut</h1>
-        <div class="line" ></div>
-        <br>
-        <br>
-        <p class="center font bold" >Create an alias</p>
+        <div id="title-bar">
+            <h1 class="center font" >New Alias</h1>
+        </div>
+    
+        <div class="form">
+            <div class="in-group">
+                <label class="font" for="">ALIAS:</label>
+                <input id="inp-alias" class="in-form" type="text" >
+            </div>
 
-        <a id="btn-add" href="#">
-            <div id="circle"></div>
-            <div id="circle-inside" ></div>
-            <div class="vert-bar" ></div>
-            <div class="hor-bar" ></div>
-        </a>
-
+            <div class="in-group">
+                <label class="font" for="">URL:</label>
+                <input id="inp-url" class="in-form" type="text"  value="https://">
+            </div>      
+        </div>
+        
+        <button id="btn-add" type="button">ADD</button>
         
         <script src="popup.js" ></script>
     </body>
