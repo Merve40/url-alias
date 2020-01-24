@@ -144,9 +144,7 @@ function createNewEntry(alias, url){
             urlInput.value = "https://";
         });
     
-    }else{
-        showError();
-    } 
+    }
 }
 
 function create(alias, url){
@@ -195,9 +193,5 @@ function load(){
     });
 }
 
-function showError(){
-    //TODO: show error msg
-    console.log("error");
-}
 
 load();

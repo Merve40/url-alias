@@ -9,7 +9,7 @@
         "scripts": ["trigger.js"]
     },
     "icons": {
-        "48": "icons/icon-48.png"
+        "48": "icons/ic_48.png"
     },
     "browser_specific_settings": {
         "gecko": {
@@ -18,7 +18,7 @@
         }
     },
     "page_action": {
-        "default_icon": "icons/icon-48.png",
+        "default_icon": "icons/ic_48.png",
         "default_title": "Shortcut",
         "default_popup": "popup.html"            
     }

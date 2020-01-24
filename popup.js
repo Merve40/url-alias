@@ -1,5 +1,6 @@
 var alias = document.querySelector("#inp-alias");
 var url = document.querySelector("#inp-url");
+var removeBtn = document.querySelector("#btn-remove");
 var addBtn = document.querySelector("#btn-add");
 
 var oldAlias = null;
@@ -16,12 +17,23 @@ addBtn.onclick = (e)=>{
         browser.storage.sync.set(obj);
          
         browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
-            browser.runtime.sendMessage({tab: tabs[0]});
+            browser.runtime.sendMessage({tab: tabs[0], action: 'add'});
         });  
 
         window.close();   
     }
 };
+
+removeBtn.onclick = (e)=>{
+    browser.storage.sync.remove(alias.value).then(()=>{
+        addBtn.classList.remove("btn-add-scale");
+        removeBtn.classList.add("hide");
+        alias.value = "";
+        browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
+            browser.runtime.sendMessage({tab: tabs[0], action: 'remove'});
+        });  
+    });    
+}
 
 window.onload = ()=>{
     browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
@@ -33,8 +45,16 @@ window.onload = ()=>{
                 if(entry == url.value.trim()){
                     alias.value = key;
                     oldAlias = alias.value;
+
+                    //add remove button
+                    showRemoveButton();
                 }
             }
         });
     });
 };
+
+function showRemoveButton(){
+    addBtn.classList.add("btn-add-scale");
+    removeBtn.classList.remove("hide");
+}

@@ -27,9 +27,9 @@ var filter = {
 
 browser.webNavigation.onErrorOccurred.addListener(callback, filter);
 
-function setIcon(tab){
+function setIcon(tab, icPath){
     var icon = {
-        path: "icons/icon-32.png",
+        path: icPath,
         tabId: tab.id
     };
     browser.pageAction.setIcon(icon);
@@ -45,8 +45,7 @@ browser.webNavigation.onCompleted.addListener((details)=>{
             for(var key in entries){
                 var entry = entries[key];
                 if(entry == url.trim()){
-                    //TODO: change icon (maybe just color of icon)
-                    setIcon(tabs[0]);
+                    setIcon(tabs[0], "icons/ic_selected_48.png");
                 }
             }
         });
@@ -61,6 +60,12 @@ browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
 });
 
 browser.runtime.onMessage.addListener((message, sender, response)=>{
-    setIcon(message.tab);
+    
+    if(message.action == 'add'){
+        setIcon(message.tab, "icons/ic_selected_48.png");
+    }else if(message.action == 'remove'){
+        setIcon(message.tab, "icons/ic_48.png");
+    }
+    
 });
 
