@@ -1,21 +1,16 @@
 {
     "name": "Shortcut",
     "description" : "Shortcut allows the user to define a short alias for a url, in order to access websites faster.",
+    "homepage_url": "https://github.com/merve40/url-shortcut",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["storage"],
+    "permissions": ["storage", "tabs", "webNavigation", "webRequest"],
     "background": {
-        "scripts": ["shortcut.js"],
+        "scripts": ["trigger.js"],
         "persistent": false
     },
-    "content_scripts": [
-        {
-            "matches": [ "file:///*" ],
-            "js": [ "shortcut.js" ]
-        }
-    ],
     "icons": {
-        "48": "todo.png"
+        "48": "icons/icon-48.png"
     },
     "browser_specific_settings": {
         "gecko": {
@@ -24,7 +19,7 @@
         }
     },
     "browser_action": {
-        "default_icon": "todo.png",
+        "default_icon": "icons/icon-48.png",
         "default_title": "Shortcut",
         "default_popup": "popup.html",
         "browser_style": true

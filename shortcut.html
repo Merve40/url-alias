@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shortcut</title>
+        <meta charset="utf-8">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
+                integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+
+        <style>
+            body{
+                padding: 10px;
+                background-image: linear-gradient(to right, purple, blue);
+                color: whitesmoke;
+            }
+
+            .center{
+                text-align: center;
+            }
+
+            .font{
+                font-family: sans-serif;
+            }
+
+            .line{
+                width: 100%;
+                height: 1px;
+                background-color: whitesmoke;
+            }
+
+            .content{
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            a{
+                color: whitesmoke;
+            }
+
+            a:hover{
+                color: lightgray;
+            }
+
+            th, td{
+                text-align: right;
+            }
+
+            .hide{
+                display: none;
+            }
+
+            .edit{
+                background-color: transparent;
+                color: whitesmoke;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <h1 class="center font " style="font-weight: bolder;">Shortcut</h1>
+        <div class="line" ></div>
+        <br>
+        <br>
+        
+        <div class="content">
+            <h2 class="font" >Create a new alias</h2>
+            <br>
+            <br>
+            <div class="input-group input-group-lg mb-3 " >
+                <input id="input-alias" type="text" class="form-control" placeholder="alias" aria-label="alias" >
+                <input id="input-url" type="text" class="form-control" placeholder="url" aria-label="url" aria-describedby="btn-add">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button" id="btn-add">add</button>
+                </div>
+            </div>
+    
+            <br>
+            <br>
+            <table class="table " style="color: whitesmoke;">
+                <thead class="thead-light">
+                    <tr>
+                    <th scope="col">ALIAS</th>
+                    <th scope="col">URL</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                                        
+                </tbody>
+            </table>
+        </div>
+                
+        <script src="shortcut.js"></script>
+    </body>
+
+</html>
