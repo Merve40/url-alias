@@ -1,7 +1,7 @@
 {
     "name": "URL Alias",
     "description" : "Shortcut allows the user to define a short alias for a url, in order to access websites faster.",
-    "homepage_url": "https://github.com/merve40/url-shortcut",
+    "homepage_url": "https://github.com/merve40/url-alias",
     "version": "1.0",
     "manifest_version": 2,
     "permissions": ["storage", "tabs", "webNavigation", "webRequest", "activeTab", "runtime"],
