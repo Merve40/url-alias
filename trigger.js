@@ -11,7 +11,7 @@ var callback = function(details){
     getPromise.then((redirect) =>{
 
         if(Object.keys(redirect).length === 0 && redirect.constructor === Object){
-            browser.tabs.update(details.tabId, {url: "shortcut.html?new="+url});
+            browser.tabs.update(details.tabId, {url: "url-alias.html?new="+url});
         }else{
             browser.tabs.update(details.tabId, {url: redirect[url]});
         }

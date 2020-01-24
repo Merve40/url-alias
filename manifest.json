@@ -1,5 +1,5 @@
 {
-    "name": "Shortcut",
+    "name": "URL Alias",
     "description" : "Shortcut allows the user to define a short alias for a url, in order to access websites faster.",
     "homepage_url": "https://github.com/merve40/url-shortcut",
     "version": "1.0",
@@ -13,7 +13,7 @@
     },
     "browser_specific_settings": {
         "gecko": {
-          "id": "shortcut@mrvshn40.com",
+          "id": "url-alias@mrvshn40.com",
           "strict_min_version": "42.0"
         }
     },
