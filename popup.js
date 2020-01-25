@@ -16,7 +16,7 @@ addBtn.onclick = (e)=>{
         
         browser.storage.sync.set(obj);
          
-        browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
+        browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
             browser.runtime.sendMessage({tab: tabs[0], action: 'add'});
         });  
 
@@ -29,14 +29,14 @@ removeBtn.onclick = (e)=>{
         addBtn.classList.remove("btn-add-scale");
         removeBtn.classList.add("hide");
         alias.value = "";
-        browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
+        browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
             browser.runtime.sendMessage({tab: tabs[0], action: 'remove'});
         });  
     });    
 }
 
 window.onload = ()=>{
-    browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
+    browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
         url.value = tabs[0].url;
 
         browser.storage.sync.get().then((entries)=>{

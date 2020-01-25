@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shortcut</title>
+        <title>URL Alias</title>
         <meta charset="utf-8">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
-                integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="jquery-3.4.1.min.js"></script>
-        <script src="popper.min.js"></script>
-        <script src="bootstrap.min.js"></script>
+ 
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
         <style>
             body{
@@ -63,7 +63,7 @@
     </head>
 
     <body>
-        <h1 class="center font " style="font-weight: bolder;">Shortcut</h1>
+        <h1 class="center font " style="font-weight: bolder;">URL Alias</h1>
         <div class="line" ></div>
         <br>
         <br>
@@ -95,7 +95,8 @@
                 </tbody>
             </table>
         </div>
-                
+
+        <script src="node_modules/webextension-polyfill/dist/browser-polyfill.js"></script>
         <script src="url-alias.js"></script>
     </body>
 

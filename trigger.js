@@ -1,5 +1,11 @@
 'use strict';
 
+try{
+    var test = browser;
+}catch(e){
+    console.log("'browser' not defined!");
+}
+
 var callback = function(details){
     var url = details.url.split("///")[1];
    
@@ -38,13 +44,13 @@ function setIcon(tab, icPath){
 browser.webNavigation.onCompleted.addListener((details)=>{
     browser.pageAction.show(details.tabId);
 
-    browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
-        var url = tabs[0].url;
+    browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
+        var url = tabs[0].url.trim();
 
         browser.storage.sync.get().then((entries)=>{
             for(var key in entries){
                 var entry = entries[key];
-                if(entry == url.trim()){
+                if(entry == url){
                     setIcon(tabs[0], "icons/ic_selected_48.png");
                 }
             }
@@ -53,7 +59,7 @@ browser.webNavigation.onCompleted.addListener((details)=>{
 
 }, filter);
 
-browser.tabs.query({currentWindow:true, active:true} ,(tabs, error)=>{
+browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
     for (var tab in tabs){
         browser.pageAction.show(tabs[tab].id);
     }
