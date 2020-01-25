@@ -1,5 +1,9 @@
-# URL Alias
+# URL Alias - Browser Extension
 This extension allows users to define aliases for urls in order to access web pages faster.
+
+## Support
+* Firefox
+* Chrome
 
 ## Demo
 
@@ -18,8 +22,4 @@ Install:
 ```bash
 npm install
 ```
-
-## Support
-* Firefox
-* Chrome
 
