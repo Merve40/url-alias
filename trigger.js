@@ -1,11 +1,5 @@
 'use strict';
 
-try{
-    var test = browser;
-}catch(e){
-    console.log("'browser' not defined!");
-}
-
 var callback = function(details){
     var url = details.url.split("///")[1];
    
