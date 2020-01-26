@@ -8,7 +8,8 @@
     "background": {
         "scripts": [
             "node_modules/webextension-polyfill/dist/browser-polyfill.js",
-            "trigger.js"
+            "util.js",
+            "background.js"
         ]
     },
     "icons": {

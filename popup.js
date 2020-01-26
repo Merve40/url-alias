@@ -2,59 +2,44 @@ var alias = document.querySelector("#inp-alias");
 var url = document.querySelector("#inp-url");
 var removeBtn = document.querySelector("#btn-remove");
 var addBtn = document.querySelector("#btn-add");
-
 var oldAlias = null;
 
 addBtn.onclick = (e)=>{
     if(alias.value.trim().length > 0 & url.value.trim().length > 0){
-        var obj = {};
-        obj[alias.value] = url.value;
         
         if(oldAlias != null && oldAlias != alias.value){
-            browser.storage.sync.remove(oldAlias);            
+            util.db.remove(oldAlias);            
         }
         
-        browser.storage.sync.set(obj);
-         
-        browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
-            browser.runtime.sendMessage({tab: tabs[0], action: 'add'});
-        });  
-
+        util.db.save(alias.value, url.value); 
+        browser.runtime.sendMessage({action: 'add'});
         window.close();   
     }
 };
 
 removeBtn.onclick = (e)=>{
-    browser.storage.sync.remove(alias.value).then(()=>{
-        addBtn.classList.remove("btn-add-scale");
-        removeBtn.classList.add("hide");
+    util.db.remove(alias.value).then(()=>{
         alias.value = "";
-        browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
-            browser.runtime.sendMessage({tab: tabs[0], action: 'remove'});
-        });  
-    });    
+        addBtn.classList.toggle("btn-add-scale");
+        removeBtn.classList.toggle('hide');
+        browser.runtime.sendMessage({action: 'remove'});
+    });   
 }
 
-window.onload = ()=>{
-    browser.tabs.query({currentWindow:true, active:true}).then((tabs, error)=>{
-        url.value = tabs[0].url;
+window.onload = async function(){
 
-        browser.storage.sync.get().then((entries)=>{
-            for(var key in entries){
-                var entry = entries[key];
-                if(entry == url.value.trim()){
-                    alias.value = key;
-                    oldAlias = alias.value;
-
-                    //add remove button
-                    showRemoveButton();
-                }
-            }
-        });
+    var tab = await util.getCurrentTab();
+    url.value = tab.url;
+    util.db.find(tab.url).then(result=>{
+        // set input fields
+        alias.value = result.key;
+        oldAlias = alias.value;
+        // set icon
+        util.icon.setSelected();
+        // make button visible 
+        addBtn.classList.toggle("btn-add-scale");
+        removeBtn.classList.toggle('hide');
+    }).catch(e=>{
+        util.icon.set();
     });
 };
-
-function showRemoveButton(){
-    addBtn.classList.add("btn-add-scale");
-    removeBtn.classList.remove("hide");
-}
