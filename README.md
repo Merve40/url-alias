@@ -18,7 +18,6 @@ Install:
 * [webextension-polyfill](https://github.com/mozilla/webextension-polyfill) for cross-browser support
 * bootstrap
 * jquery
-* popper.js
 ```bash
 npm install
 ```
