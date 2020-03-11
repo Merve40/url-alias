@@ -7,8 +7,11 @@
             body{
                 margin: 0;
                 padding: 0;
-                width: 400px;
-                height: 280px;
+            }
+
+            .content{
+                width: 100%;
+                height: 100%;
             }
 
             #title-bar{
@@ -38,8 +41,9 @@
             }
 
             .form{
-                padding-right: 5%;
-                padding-left: 5%;
+                padding-left: 2em;
+                padding-right: 2em;
+
             }
 
             .in-form{
@@ -53,13 +57,14 @@
                 margin-top: 10px; 
             }
 
+            .btn-div{
+                margin-top: 15px;
+            }
+
             #btn-add{
                 width: 100%;
                 height: 50px;
-                position: fixed;
-                right: 0;
-                bottom: 0;
-                margin: 0;
+                float: right;
                 border: none;
             }
 
@@ -70,10 +75,6 @@
             #btn-remove{
                 width: 50%;
                 height: 50px;
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                margin: 0;
                 border: none;
                 background-color:royalblue;
                 color: whitesmoke;
@@ -99,31 +100,46 @@
                 font-size: 18px;
             }
             
+            #error{
+                font-weight: bold;
+                color: red;
+                font-size: 12px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
 
         </style>
 
     </head>
 
     <body>
-        <div id="title-bar">
-            <h1 class="center font" >New Alias</h1>
-        </div>
-    
-        <div class="form">
-            <div class="in-group">
-                <label class="font" for="">ALIAS:</label>
-                <input id="inp-alias" class="in-form" type="text" >
-            </div>
 
-            <div class="in-group">
-                <label class="font" for="">URL:</label>
-                <input id="inp-url" class="in-form" type="text"  value="https://">
-            </div>      
+        <div class="content">
+            <div id="title-bar">
+                <h1 class="center font" >New Alias</h1>
+            </div>
+        
+            <div class="form">
+                <div class="in-group">
+                    <label class="font" for="">ALIAS:</label>
+                    <input id="inp-alias" class="in-form" type="text" >
+                </div>
+    
+                <div class="in-group">
+                    <label class="font" for="">URL:</label>
+                    <input id="inp-url" class="in-form" type="text"  value="https://">
+                </div>      
+            
+                <div id="error" class="hide font">Alias can not contain special characters!</div>
+            </div>
+    
+            <div class="btn-div">
+                <button id="btn-remove" class="hide" type="button">REMOVE</button>
+                <button id="btn-add" type="button">ADD</button>
+            </div>
         </div>
-        
-        <button id="btn-remove" class="hide" type="button">REMOVE</button>
-        <button id="btn-add" type="button">ADD</button>
-        
+
+
         <script src="node_modules/webextension-polyfill/dist/browser-polyfill.min.js"></script>
         <script src="util.js" ></script>
         <script src="popup.js" ></script>

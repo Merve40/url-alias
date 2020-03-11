@@ -2,6 +2,7 @@ var tableBody = document.querySelector("tbody");
 var aliasInput = document.querySelector("#input-alias");
 var urlInput = document.querySelector("#input-url");            
 var addBtn = document.querySelector("#btn-add");
+var error = document.querySelector('#error');
 
 addBtn.onclick = add;
 urlInput.value = "https://";
@@ -12,12 +13,20 @@ function add(e){
     var alias = aliasInput.value.trim();
     var url = urlInput.value.trim();
 
+    if(/[^a-zA-Z0-9]/.test(alias)) {
+        //TODO: show error message
+        error.classList.remove('hide');
+        console.log("error in alias: special characters not allowed!");
+        return;
+    }
+
     if(alias && url){
         if(url.startsWith("https://") || url.startsWith("http://")){
             util.db.get(alias).then((result)=>{}).catch((err)=>{
                 create(alias, url);
                 aliasInput.value = "";
                 urlInput.value = "https://";
+                error.classList.add('hide');
             });   
         }
     }
@@ -48,6 +57,13 @@ function save(e){
             close(id, result[id]);
             
         }else if( id != aliasInput.children[0].value.trim()){
+            
+            if(/[^a-zA-Z0-9]/.test(aliasInput.children[0].value)){
+                //TODO: show error message
+                console.log("error in alias: special characters not allowed!");
+                return;
+            }
+
             util.db.remove(id).then(()=>{
                 util.db.save(aliasInput.children[0].value.trim(), urlInput.children[0].value.trim()).then(()=>{
                     util.html.updateElementIds(id, aliasInput.children[0].value.trim());

@@ -19,6 +19,10 @@
                 text-align: center;
             }
 
+            .container{
+                width: 100% !important;
+            }
+
             .font{
                 font-family: sans-serif;
             }
@@ -57,6 +61,16 @@
                 background-color: transparent;
                 color: whitesmoke;
             }
+
+            #error{
+                background-color: #f74747;
+                font-weight: bold;
+                color: whitesmoke;
+                font-size: 12px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
         </style>
 
     </head>
@@ -67,33 +81,45 @@
         <br>
         <br>
         
-        <div class="content">
-            <h2 class="font" >Create a new alias</h2>
-            <br>
-            <br>
-            <div class="input-group input-group-lg mb-3 " >
-                <input id="input-alias" type="text" class="form-control" placeholder="alias" aria-label="alias" >
-                <input id="input-url" type="text" class="form-control" placeholder="url" aria-label="url" aria-describedby="btn-add">
-                <div class="input-group-append">
-                    <button class="btn btn-secondary" type="button" id="btn-add">add</button>
+        <div class="container">
+            <div class="row justify-content-md-center">
+               <div class="col">
+                    <h2 class="font" >Create a New Alias</h2>
+               </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <div class="input-group input-group-lg mb-3 " >
+                        <input id="input-alias" type="text" class="form-control" placeholder="alias" aria-label="alias" >
+                        <input id="input-url" type="text" class="form-control" placeholder="url" aria-label="url" aria-describedby="btn-add">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button" id="btn-add">add</button>
+                        </div>                
+                        <div id="error" class="hide font">Alias can not contain special characters!</div>
+                    </div>
+                </div>
+             </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <table class="table " style="color: whitesmoke;">
+                        <thead class="thead-light">
+                            <tr>
+                            <th scope="col">ALIAS</th>
+                            <th scope="col">URL</th>
+                            <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                
+                        </tbody>
+                    </table>
                 </div>
             </div>
-    
-            <br>
-            <br>
-            <table class="table " style="color: whitesmoke;">
-                <thead class="thead-light">
-                    <tr>
-                    <th scope="col">ALIAS</th>
-                    <th scope="col">URL</th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                                        
-                </tbody>
-            </table>
         </div>
+        
+        
 
         <script src="node_modules/webextension-polyfill/dist/browser-polyfill.min.js"></script>
         <script src="util.js"></script>
