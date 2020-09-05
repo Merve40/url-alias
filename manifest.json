@@ -2,12 +2,12 @@
     "name": "URL Alias",
     "description" : "URL Alias allows the user to define a short alias for a url, in order to access websites faster.",
     "homepage_url": "https://github.com/merve40/url-alias",
-    "version": "1.1",
+    "version": "1.2",
     "manifest_version": 2,
     "permissions": ["storage", "tabs", "webNavigation"],
     "background": {
         "scripts": [
-            "node_modules/webextension-polyfill/dist/browser-polyfill.min.js",
+            "browser-polyfill.min.js",
             "util.js",
             "background.js"
         ]
