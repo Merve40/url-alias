@@ -2,9 +2,9 @@
 This extension allows users to define aliases for urls in order to access web pages faster.
 
 ## Support
-* Firefox Desktop https://addons.mozilla.org/en-US/firefox/addon/alias-url/    
-* Firefox for Android (including Beta Version) 
-* Chrome 
+* [Firefox Desktop Extension](https://addons.mozilla.org/en-US/firefox/addon/alias-url/)    
+* [Chrome Desktop Extension](https://chrome.google.com/webstore/detail/url-alias/fchefaeihhednjnhhpfffibfbojdcmhk)
+* does not support Chrome Android and Firefox Android
 
 ## Demo
 
