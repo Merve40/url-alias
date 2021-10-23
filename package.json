@@ -1,0 +1,30 @@
+{
+  "name": "url-alias",
+  "version": "1.0.0",
+  "description": "This extension allows users to define aliases for urls in order to access web pages faster.",
+  "main": "url-alias.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merve40/url-alias.git"
+  },
+  "keywords": [
+    "extension",
+    "browser",
+    "url-alias",
+    "alias"
+  ],
+  "author": "Merve Sahin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merve40/url-alias/issues"
+  },
+  "homepage": "https://github.com/Merve40/url-alias#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "jquery": "^3.6.0",
+    "webextension-polyfill": "^0.8.0"
+  }
+}

@@ -101,7 +101,7 @@
                 font-size: 18px;
             }
             
-            #error{
+            #error, #error2{
                 font-weight: bold;
                 color: red;
                 font-size: 12px;
@@ -109,6 +109,9 @@
                 margin-bottom: 10px;
             }
 
+            #link {
+                margin-top: 10px;
+            }
         </style>
 
     </head>
@@ -131,7 +134,13 @@
                     <input id="inp-url" class="in-form" type="text"  value="https://">
                 </div>      
             
+                <div style="margin-top: 20px;">
+                    <a id="link"  href="">My aliases</a>
+                </div>
+
+
                 <div id="error" class="hide font">Alias can not contain special characters!</div>
+                <div id="error2" class="hide font">This alias is reserved!</div>
             </div>
     
             <div class="btn-div">

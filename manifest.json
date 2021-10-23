@@ -1,29 +1,25 @@
 {
-    "name": "URL Alias",
-    "description" : "URL Alias allows the user to define a short alias for a url, in order to access websites faster.",
-    "homepage_url": "https://github.com/merve40/url-alias",
-    "version": "1.2",
-    "manifest_version": 2,
-    "permissions": ["storage", "tabs", "webNavigation"],
-    "background": {
-        "scripts": [
-            "browser-polyfill.min.js",
-            "util.js",
-            "background.js"
-        ]
-    },
-    "icons": {
-        "60": "icons/ic_48.png"
-    },
-    "page_action": {
-        "default_icon": "icons/ic_48.png",
-        "default_title": "URL Alias",
-        "default_popup": "popup.html"            
-    },
-    "browser_specific_settings": {
-        "gecko": {
-          "id": "url-alias@mrvshn40.com",
-          "strict_min_version": "65.0"
-        }
+  "name": "URL Alias",
+  "description": "URL Alias allows the user to define a short alias for a url, in order to access websites faster.",
+  "homepage_url": "https://github.com/merve40/url-alias",
+  "version": "1.2",
+  "manifest_version": 2,
+  "permissions": ["storage", "tabs", "webNavigation"],
+  "background": {
+    "scripts": ["browser-polyfill.min.js", "util.js", "background.js"]
+  },
+  "icons": {
+    "60": "icons/ic.svg"
+  },
+  "page_action": {
+    "default_icon": "icons/ic.svg",
+    "default_title": "URL Alias",
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "url-alias@mrvshn40.com",
+      "strict_min_version": "65.0"
     }
+  }
 }
